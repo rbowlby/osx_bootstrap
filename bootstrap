@@ -11,6 +11,8 @@ bootstrapCookbookGitSrc=${2:-https://github.com/rbowlby/osx_bootstrap}
 # make userChefDir variable
 userChefDir=~/chef
 
+brewBin=/usr/local/bin/brew
+
 clear
 
 # introduction
@@ -40,13 +42,19 @@ cookbook_path File.join(Dir.pwd, 'berks-cookbooks')
 EOF
 
 # install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
+if [[ ! -e $brewBin ]]; then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 # install brew-cask
-brew install caskroom/cask/brew-cask
+if ! $brewBin list brew-cask &>/dev/null; then
+  brew install caskroom/cask/brew-cask
+fi
 
 # install chefDK
-brew cask install chefdk
+if ! $brewBin cask list chefdk &>/dev/null; then
+  brew cask install chefdk
+fi
 
 # making sure that we are vendor cookbooks into a sub directory of the userChefDir
 cd "${userChefDir}"
