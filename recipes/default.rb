@@ -16,7 +16,7 @@ node['osx_bootstrap']['cask_packages'].each do |pkg|
 end
 
 link '~/icloud' do
-  to '~/Library/Mobile Documents'
+  to '~/Library/Mobile\ Documents'
 end
 
 include_recipe 'osx_bootstrap::seil'
