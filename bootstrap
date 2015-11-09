@@ -21,6 +21,7 @@ This script will:
 2. Create a 'chef' directory in your user profile (home) directory
 3. Download the 'bootstrap' cookbook via Berkshelf
 4. Run 'chef-client' to fully configure the workstation
+
 EOF
 
 # creating a Chef directory for Chef development
@@ -39,7 +40,7 @@ cookbook_path File.join(Dir.pwd, 'berks-cookbooks')
 EOF
 
 # install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
 
 # install brew-cask
 brew install caskroom/cask/brew-cask
