@@ -7,16 +7,16 @@ end
 include_recipe 'homebrew'
 include_recipe 'homebrew::cask'
 
-package 'git'
-package 'wget'
-package 'gnu-sed'
+node['osx_bootstrap']['packages'].each do |pkg|
+  package pkg
+end
 
-homebrew_cask '1password'
-homebrew_cask 'atom'
-homebrew_cask 'alfred'
-homebrew_cask 'cyberduck'
-homebrew_cask 'dash'
-homebrew_cask 'iterm2'
-homebrew_cask 'slack'
-homebrew_cask 'vagrant'
-homebrew_cask 'virtualbox'
+node['osx_bootstrap']['cask_packages'].each do |pkg|
+  homebrew_cask pkg
+end
+
+link '~/Library/Mobile Documents' do
+  to '~/icloud'
+end
+
+include_recipe 'osx_bootstrap::seil'

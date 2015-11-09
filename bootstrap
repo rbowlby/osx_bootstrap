@@ -58,7 +58,11 @@ fi
 
 # making sure that we vendor cookbooks into a sub directory of the userChefDir
 cd "${userChefDir}"
-berks update
+if [[ -f "${userChefDir}/Berksfile.lock" ]]; then
+  berks update
+else
+  berks install
+fi
 berks vendor
 
 # run chef-client (installed by ChefDK) to bootstrap this machine

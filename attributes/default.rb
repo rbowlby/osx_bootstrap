@@ -1,10 +1,25 @@
-default['chefdk_bootstrap']['atom']['source_url'] = 'https://atom.io/download/mac'
+node.default['osx_bootstrap']['cask_packages'] = [
+'1password',
+'atom',
+'alfred',
+'cyberduck',
+'dash',
+'iterm2',
+'mou',
+'slack',
+'vagrant',
+'virtualbox',
+'vlc'
+]
 
-# common things to install
-default['chefdk_bootstrap']['package'].tap do |install|
-  install['atom'] = true
-  install['virtualbox'] = true
-  install['vagrant'] = true
-  install['git'] = true
-  install['iterm2'] = true
-end
+node.default['osx_bootstrap']['packages'] = [
+'awscli',
+'git',
+'gist',
+'gnu-sed',
+'nmap',
+'packer',
+'terraform',
+'tree',
+'wget'
+]
