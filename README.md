@@ -25,8 +25,6 @@ export pass=''
 ## Customization
 If you want to use your own custom wrapper cookbook, add the name of your cookbook and the git source to these commands
 
-### Mac
-
 ```bash
 curl https://raw.githubusercontent.com/rbowlby/osx_bootstrap/master/bootstrap | bash -s -- <your cookbook name> <your git source url>
 ```
@@ -41,7 +39,7 @@ curl https://raw.githubusercontent.com/rbowlby/osx_bootstrap/master/bootstrap | 
 * Installs git.
 * Installs Vagrant.
 * Installs Virtualbox.
-* On Mac, installs iterm2.
+* Installs iterm2.
 
 ## Attributes
 
@@ -50,7 +48,7 @@ The attributes defined by this recipe are organized under the
 
 Attribute | Description | Type   | Default
 ----------|-------------|--------|--------
-['atom']['source_url'] | Mac: Atom installer package source URL | URL String | https://atom.io/download/mac
+['atom']['source_url'] | Atom installer package source URL | URL String | https://atom.io/download/mac
 
 ## Author
 
