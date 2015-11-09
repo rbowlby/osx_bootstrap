@@ -31,7 +31,7 @@ EOF
 cat > "${userChefDir}/Berksfile" <<EOF;
 source 'https://supermarket.chef.io'
 
-cookbook '${bootstrapCookbook}' git: '${bootstrapCookbookGitSrc}'
+cookbook '${bootstrapCookbook}', git: '${bootstrapCookbookGitSrc}'
 EOF
 
 # create client.rb file so that Chef client can find its dependant cookbooks
