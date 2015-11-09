@@ -26,6 +26,12 @@ end
 seil_app = "/Applications/Seil.app"
 seil_bin = "/Applications/Seil.app/Contents/Library/bin/seil"
 
+# start seil app if not running
+execute "/usr/bin/open #{seil_app}" do
+  action :run
+  not_if "pgrep seil &>/dev/null"
+end
+
 # disable normal capslock key functionality
 execute "#{seil_bin} set enable_capslock 1" do
   action :run
