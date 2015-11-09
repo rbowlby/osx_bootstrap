@@ -15,6 +15,12 @@ end
 execute "set_capslock_noaction" do
   command "#{osascript} #{Chef::Config[:file_cache_path]}/disable_capslock.scpt"
   not_if { File.exist? "#{Chef::Config[:file_cache_path]}/set_capslock_noaction_ran" }
+  notifies :create, "file[set_capslock_noaction_ran]"
+end
+
+file "set_capslock_noaction_ran" do
+  path "#{Chef::Config[:file_cache_path]}/set_capslock_noaction_ran"
+  action :nothing
 end
 
 seil_app = "/Applications/Seil.app"
