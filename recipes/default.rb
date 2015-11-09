@@ -8,8 +8,11 @@ include_recipe 'homebrew'
 include_recipe 'homebrew::cask'
 
 package 'git'
+package 'wget'
+package 'gnu-sed'
 
 homebrew_cask 'atom'
 homebrew_cask 'iterm2'
+homebrew_cask 'slack'
 homebrew_cask 'vagrant'
 homebrew_cask 'virtualbox'
